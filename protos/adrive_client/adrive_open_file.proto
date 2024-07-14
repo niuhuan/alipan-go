@@ -19,6 +19,9 @@ message AdriveOpenFile {
   string play_cursor = 15;
   VideoMediaMetadata video_media_metadata = 16;
   VideoMediaMetadata video_preview_metadata = 17;
+  repeated FileItem items = 18;
+  string id_path = 19;
+  string name_path = 20;
 }
 
 message VideoMediaMetadata {
@@ -39,5 +42,9 @@ message VideoMediaAudioStream {
   string duration = 1;
   string bit_rate = 2;
   string code_name = 3;
+}
+
+message FileItem {
+  VideoMediaMetadata video_preview_metadata = 1;
 }
 

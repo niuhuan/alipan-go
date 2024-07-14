@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+option go_package = "adrive_client/protos/";
+
+message AdriveOpenFileGetParams {
+    string drive_id = 1;
+    string file_id = 2;
+    int64 video_thumbnail_time = 3;
+    int64 video_thumbnail_width = 4;
+    int64 image_thumbnail_width = 5;
+    string fields = 6;
+}

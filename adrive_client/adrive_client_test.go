@@ -114,3 +114,15 @@ func TestAdriveClient_AdriveOpenFileList(t *testing.T) {
 	}
 	t.Log(info)
 }
+
+func TestAdriveClient_AdriveOpenFileGet(t *testing.T) {
+	client := adriveClient(t)
+	info, err := client.AdriveOpenFileGet(&protos.AdriveOpenFileGetParams{
+		DriveId: "drive_id",
+		FileId:  "file_id",
+	})
+	if err != nil {
+		t.Fatal(err)
+	}
+	t.Log(info)
+}
