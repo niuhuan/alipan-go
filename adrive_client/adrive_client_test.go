@@ -126,3 +126,27 @@ func TestAdriveClient_AdriveOpenFileGet(t *testing.T) {
 	}
 	t.Log(info)
 }
+
+func TestAdriveClient_AdriveOpenFileGetByPath(t *testing.T) {
+	client := adriveClient(t)
+	info, err := client.AdriveOpenFileGetByPath(&protos.AdriveOpenFileGetByPathParams{
+		DriveId:  "drive_id",
+		FilePath: "/file_path",
+	})
+	if err != nil {
+		t.Fatal(err)
+	}
+	t.Log(info)
+}
+
+func TestAdriveClient_AdriveOpenFileGetDownloadUrl(t *testing.T) {
+	client := adriveClient(t)
+	info, err := client.AdriveOpenFileGetDownloadUrl(&protos.AdriveOpenFileGetDownloadUrlParams{
+		DriveId: "drive_id",
+		FileId:  "file_id",
+	})
+	if err != nil {
+		t.Fatal(err)
+	}
+	t.Log(info)
+}

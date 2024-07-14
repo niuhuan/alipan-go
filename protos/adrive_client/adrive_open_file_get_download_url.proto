@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+option go_package = "adrive_client/protos/";
+
+message AdriveOpenFileGetDownloadUrl {
+  string url = 1;
+  string expiration = 2;
+  string method = 3;
+  string description = 4;
+}
