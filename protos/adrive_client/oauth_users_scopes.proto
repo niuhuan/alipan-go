@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+option go_package = "adrive_client/protos/";
+
+message OauthUserScopes {
+  repeated OauthUserScope scopes = 1;
+}
+
+message OauthUserScope {
+  string scope = 1;
+}

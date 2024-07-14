@@ -76,6 +76,15 @@ func TestAdriveClient_OauthUserInfo(t *testing.T) {
 	t.Log(info)
 }
 
+func TestAdriveClient_OauthUserScopes(t *testing.T) {
+	client := adriveClient(t)
+	info, err := client.OauthUserScopes(&protos.OauthUserScopesParams{})
+	if err != nil {
+		t.Fatal(err)
+	}
+	t.Log(info)
+}
+
 func TestAdriveClient_AdriveUserGetSpaceInfo(t *testing.T) {
 	client := adriveClient(t)
 	info, err := client.AdriveUserGetSpaceInfo(&protos.AdriveUserGetSpaceInfoParams{})
