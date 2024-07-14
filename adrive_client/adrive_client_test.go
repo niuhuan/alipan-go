@@ -162,3 +162,15 @@ func TestAdriveClient_AdriveOpenFileRecyclebinTrash(t *testing.T) {
 	}
 	t.Log(info)
 }
+
+func TestAdriveClient_AdriveOpenFileDelete(t *testing.T) {
+	client := adriveClient(t)
+	info, err := client.AdriveOpenFileDelete(&protos.AdriveOpenFileDeleteParams{
+		DriveId: "drive_id",
+		FileId:  "file_id",
+	})
+	if err != nil {
+		t.Fatal(err)
+	}
+	t.Log(info)
+}
