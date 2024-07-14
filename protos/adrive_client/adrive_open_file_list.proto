@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+import "protos/adrive_client/adrive_open_file.proto";
+
+option go_package = "adrive_client/protos/";
+
+message AdriveOpenFileList {
+  repeated AdriveOpenFile items = 1;
+  string next_marker = 2;
+}

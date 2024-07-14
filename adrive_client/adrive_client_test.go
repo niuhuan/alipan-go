@@ -25,12 +25,12 @@ func oauthClient(t *testing.T) *oauth_client.OauthClient {
 
 type TomlAccessTokenStore struct{}
 
-func (t *TomlAccessTokenStore) StoreAccessToken(token *local.AccessToken) error {
-	buff, err := os.ReadFile("../tests_data/access_token.toml")
+func (t *TomlAccessTokenStore) SaveAccessToken(token *local.AccessToken) error {
+	buff, err := toml.Marshal(token)
 	if err != nil {
 		return err
 	}
-	err = toml.Unmarshal(buff, token)
+	err = os.WriteFile("../tests_data/access_token.toml", buff, 0644)
 	if err != nil {
 		return err
 	}
@@ -97,6 +97,18 @@ func TestAdriveClient_AdriveUserGetSpaceInfo(t *testing.T) {
 func TestAdriveClient_AdriveUserGetDriveInfo(t *testing.T) {
 	client := adriveClient(t)
 	info, err := client.AdriveUserGetDriveInfo(&protos.AdriveUserGetDriveInfoParams{})
+	if err != nil {
+		t.Fatal(err)
+	}
+	t.Log(info)
+}
+
+func TestAdriveClient_AdriveOpenFileList(t *testing.T) {
+	client := adriveClient(t)
+	info, err := client.AdriveOpenFileList(&protos.AdriveOpenFileListParams{
+		DriveId:      "drive_id",
+		ParentFileId: "root",
+	})
 	if err != nil {
 		t.Fatal(err)
 	}

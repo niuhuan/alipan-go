@@ -26,7 +26,7 @@ func FromOauthAccessToken(token *protos.OauthAccessToken) AccessToken {
 }
 
 type AccessTokenStore interface {
-	StoreAccessToken(token *AccessToken) error
+	SaveAccessToken(token *AccessToken) error
 	LoadAccessToken() (*AccessToken, error)
 }
 
@@ -56,7 +56,7 @@ func (o *OauthClientTokenLoader) LoadAccessToken() (*string, error) {
 		return nil, e
 	}
 	accessToken := FromOauthAccessToken(token)
-	e = o.AccessTokenStore.StoreAccessToken(&accessToken)
+	e = o.AccessTokenStore.SaveAccessToken(&accessToken)
 	if e != nil {
 		return nil, e
 	}

@@ -58,6 +58,23 @@ func DoFormRequest[R any](l AccessTokenLoader, c *http.Client, apiUrl string, fo
 	return DoRequest[R](l, c, req)
 }
 
+func DoJsonRequest[R any](l AccessTokenLoader, c *http.Client, apiUrl string, params interface{}) (*R, error) {
+	buff, err := json.Marshal(params)
+	if err != nil {
+		return nil, err
+	}
+	req, err := http.NewRequest(
+		"POST",
+		apiUrl,
+		strings.NewReader(string(buff)),
+	)
+	if err != nil {
+		return nil, err
+	}
+	req.Header.Set("Content-Type", "application/json")
+	return DoRequest[R](l, c, req)
+}
+
 func DoGetQuery[R any](l AccessTokenLoader, c *http.Client, apiUrl string, queryValues url.Values) (*R, error) {
 	if len(queryValues) > 0 {
 		apiUrl += "?" + queryValues.Encode()
