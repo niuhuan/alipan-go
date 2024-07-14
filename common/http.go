@@ -69,3 +69,11 @@ func DoGetQuery[R any](l AccessTokenLoader, c *http.Client, apiUrl string, query
 	}
 	return DoRequest[R](l, c, req)
 }
+
+func DoPostNoBody[R any](l AccessTokenLoader, c *http.Client, apiUrl string) (*R, error) {
+	req, err := http.NewRequest("POST", apiUrl, nil)
+	if err != nil {
+		return nil, err
+	}
+	return DoRequest[R](l, c, req)
+}

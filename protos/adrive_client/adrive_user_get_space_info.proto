@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+option go_package = "adrive_client/protos/";
+
+message AdriveUserGetSpaceInfo {
+    PersonalSpaceInfo personal_space_info = 1;
+}
+
+message PersonalSpaceInfo {
+    int64 used_size = 1;
+    int64 total_size = 2;
+}
