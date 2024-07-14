@@ -1,0 +1,5 @@
+tests_data/
+
+.vscode/
+.idea/
+*.iml

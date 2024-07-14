@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+option go_package = "oauth_client/protos/";
+
+
+message OauthAuthorizeUrlParams {
+  string redirect_uri = 1;
+  string scope = 2;
+  string response_type = 3;
+  optional string state  = 4;
+  optional bool relogin = 5;
+  optional string drive = 6;
+}
