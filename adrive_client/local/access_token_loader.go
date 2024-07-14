@@ -32,7 +32,7 @@ type AccessTokenStore interface {
 
 type OauthClientTokenLoader struct {
 	AccessTokenStore AccessTokenStore
-	OauthClient      oauth_client.OauthClient
+	OauthClient      *oauth_client.OauthClient
 }
 
 // LoadAccessToken impl AccessTokenLoad for OauthClientTokenLoader
@@ -50,7 +50,7 @@ func (o *OauthClientTokenLoader) LoadAccessToken() (*string, error) {
 	}
 	token, e := o.OauthClient.OauthAccessToken(&protos.OauthAccessTokenParams{
 		GrantType:    "refresh_token",
-		RefreshToken: &a.RefreshToken,
+		RefreshToken: a.RefreshToken,
 	})
 	if e != nil {
 		return nil, e

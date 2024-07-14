@@ -40,7 +40,7 @@ func TestOauthClient_OauthAccessToken(t *testing.T) {
 	code := "code"
 	token, err := client.OauthAccessToken(&protos.OauthAccessTokenParams{
 		GrantType: "authorization_code",
-		Code:      &code,
+		Code:      code,
 	})
 	if err != nil {
 		t.Fatal(err)

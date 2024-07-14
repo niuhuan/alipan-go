@@ -3,8 +3,8 @@ syntax = "proto3";
 option go_package = "oauth_client/protos/";
 
 message OauthAccessTokenParams {
-    string grant_type = 1;
-    optional string code = 2;
-    optional string refresh_token = 3;
-    optional string code_verifier = 4;
+  string grant_type = 1;
+  string code = 2;
+  string refresh_token = 3;
+  string code_verifier = 4;
 }

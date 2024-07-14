@@ -62,6 +62,7 @@ func adriveClient(t *testing.T) *AdriveClient {
 	}
 	client := NewAdriveClient(appInfo["client_id"], &local.OauthClientTokenLoader{
 		AccessTokenStore: &TomlAccessTokenStore{},
+		OauthClient:      oauthClient(t),
 	})
 	return client
 }
@@ -75,9 +76,18 @@ func TestAdriveClient_OauthUserInfo(t *testing.T) {
 	t.Log(info)
 }
 
-func TestAdriveClient_OauthUserGetSpaceInfo(t *testing.T) {
+func TestAdriveClient_AdriveUserGetSpaceInfo(t *testing.T) {
 	client := adriveClient(t)
-	info, err := client.OauthUserGetSpaceInfo(&protos.AdriveUserGetSpaceInfoParams{})
+	info, err := client.AdriveUserGetSpaceInfo(&protos.AdriveUserGetSpaceInfoParams{})
+	if err != nil {
+		t.Fatal(err)
+	}
+	t.Log(info)
+}
+
+func TestAdriveClient_AdriveUserGetDriveInfo(t *testing.T) {
+	client := adriveClient(t)
+	info, err := client.AdriveUserGetDriveInfo(&protos.AdriveUserGetDriveInfoParams{})
 	if err != nil {
 		t.Fatal(err)
 	}

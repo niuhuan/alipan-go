@@ -59,11 +59,10 @@ func DoFormRequest[R any](l AccessTokenLoader, c *http.Client, apiUrl string, fo
 }
 
 func DoGetQuery[R any](l AccessTokenLoader, c *http.Client, apiUrl string, queryValues url.Values) (*R, error) {
-	url := apiUrl
 	if len(queryValues) > 0 {
-		url += "?" + queryValues.Encode()
+		apiUrl += "?" + queryValues.Encode()
 	}
-	req, err := http.NewRequest("GET", url, nil)
+	req, err := http.NewRequest("GET", apiUrl, nil)
 	if err != nil {
 		return nil, err
 	}

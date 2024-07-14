@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+option go_package = "adrive_client/protos/";
+
+message AdriveUserGetDriveInfo {
+    string user_id = 1;
+    string name = 2;
+    string avatar = 3;
+    string default_drive_id = 4;
+    string resource_drive_id = 5;
+    string backup_drive_id = 6;
+}

@@ -17,12 +17,10 @@ func (c *OauthClient) OauthAuthorizeUrl(params *protos.OauthAuthorizeUrlParams) 
 	q.Set("response_type", params.GetResponseType())
 	q.Set("redirect_uri", params.GetRedirectUri())
 	q.Set("scope", params.GetScope())
-	if params.State != nil {
-		q.Set("state", *params.State)
+	if params.State != "" {
+		q.Set("state", params.State)
 	}
-	if params.Relogin != nil {
-		q.Set("relogin", fmt.Sprintf("%t", *params.Relogin))
-	}
+	q.Set("relogin", fmt.Sprintf("%v", params.Relogin))
 	url.RawQuery = q.Encode()
 	return url.String(), nil
 }
