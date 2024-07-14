@@ -150,3 +150,15 @@ func TestAdriveClient_AdriveOpenFileGetDownloadUrl(t *testing.T) {
 	}
 	t.Log(info)
 }
+
+func TestAdriveClient_AdriveOpenFileRecyclebinTrash(t *testing.T) {
+	client := adriveClient(t)
+	info, err := client.AdriveOpenFileRecyclebinTrash(&protos.AdriveOpenFileRecyclebinTrashParams{
+		DriveId: "drive_id",
+		FileId:  "file_id",
+	})
+	if err != nil {
+		t.Fatal(err)
+	}
+	t.Log(info)
+}
