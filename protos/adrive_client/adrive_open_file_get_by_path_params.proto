@@ -1,0 +1,8 @@
+syntax = "proto3";
+
+option go_package = "adrive_client/protos/";
+
+message AdriveOpenFileGetByPathParams {
+    string drive_id = 1;
+    string file_path = 2;
+}
