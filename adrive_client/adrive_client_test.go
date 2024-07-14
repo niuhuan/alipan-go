@@ -174,3 +174,17 @@ func TestAdriveClient_AdriveOpenFileDelete(t *testing.T) {
 	}
 	t.Log(info)
 }
+
+func TestAdriveClient_AdriveOpenFileCopy(t *testing.T) {
+	client := adriveClient(t)
+	info, err := client.AdriveOpenFileCopy(&protos.AdriveOpenFileCopyParams{
+		DriveId:        "drive_id",
+		FileId:         "file_id",
+		ToDriveId:      "to_drive_id",
+		ToParentFileId: "to_parent_file_id",
+	})
+	if err != nil {
+		t.Fatal(err)
+	}
+	t.Log(info)
+}

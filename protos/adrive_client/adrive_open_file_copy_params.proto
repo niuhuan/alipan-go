@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+option go_package = "adrive_client/protos/";
+
+message AdriveOpenFileCopyParams {
+  string drive_id = 1;
+  string file_id = 2;
+  string to_drive_id = 3;
+  string to_parent_file_id = 4;
+  bool auto_rename = 5;
+}
