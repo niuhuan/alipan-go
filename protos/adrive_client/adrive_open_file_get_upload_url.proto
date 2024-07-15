@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+import "protos/adrive_client/adrive_open_file.proto";
+
+option go_package = "adrive_client/protos/";
+
+message AdriveOpenFileGetUploadUrl {
+  string drive_id = 1;
+  string parent_file_id = 2;
+  string upload_id = 3;
+  string created_at = 4;
+  repeated AdriveOpenFilePartInfo part_info_list = 5;
+}

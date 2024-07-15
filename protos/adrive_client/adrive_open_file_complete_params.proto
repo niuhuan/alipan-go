@@ -1,0 +1,9 @@
+syntax = "proto3";
+
+option go_package = "adrive_client/protos/";
+
+message AdriveOpenFileCompleteParams {
+  string drive_id = 1;
+  string file_id = 2;
+  string upload_id = 3;
+}
