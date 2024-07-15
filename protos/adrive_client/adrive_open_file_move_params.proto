@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+option go_package = "adrive_client/protos/";
+
+message AdriveOpenFileMoveParams {
+  string drive_id = 1;
+  string file_id = 2;
+  string to_parent_file_id = 3;
+  string check_name_mode = 4;
+  string new_name = 5;
+}

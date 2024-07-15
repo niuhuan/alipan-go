@@ -188,3 +188,16 @@ func TestAdriveClient_AdriveOpenFileCopy(t *testing.T) {
 	}
 	t.Log(info)
 }
+
+func TestAdriveClient_AdriveOpenFileMove(t *testing.T) {
+	client := adriveClient(t)
+	info, err := client.AdriveOpenFileMove(&protos.AdriveOpenFileMoveParams{
+		DriveId:        "drive_id",
+		FileId:         "file_id",
+		ToParentFileId: "to_parent_file_id",
+	})
+	if err != nil {
+		t.Fatal(err)
+	}
+	t.Log(info)
+}

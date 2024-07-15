@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+option go_package = "adrive_client/protos/";
+
+message AdriveOpenFileMove {
+  string drive_id = 1;
+  string file_id = 2;
+  string async_task_id = 3;
+  bool exist = 4;
+}
