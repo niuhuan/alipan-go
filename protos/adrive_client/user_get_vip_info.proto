@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+option go_package = "adrive_client/protos/";
+
+message UserGetVipInfo {
+  string identity = 1;
+  string level = 2;
+  int64 expire = 3;
+  bool third_party_vip = 4;
+  int64 third_party_vip_expire = 5;
+}
