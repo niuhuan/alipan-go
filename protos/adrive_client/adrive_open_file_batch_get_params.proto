@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+option go_package = "adrive_client/protos/";
+
+message AdriveOpenFileBatchGetParams {
+  repeated BatchGetFileItem file_list = 1;
+  int64 video_thumbnail_time = 2;
+  int64 video_thumbnail_width = 3;
+  int64 image_thumbnail_width = 4;
+}
+
+message BatchGetFileItem {
+  string drive_id = 1;
+  string file_id = 2;
+}

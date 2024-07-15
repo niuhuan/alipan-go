@@ -1,0 +1,9 @@
+syntax = "proto3";
+
+import "protos/adrive_client/adrive_open_file.proto";
+
+option go_package = "adrive_client/protos/";
+
+message AdriveOpenFileBatchGet {
+  repeated AdriveOpenFile items = 1;
+}
