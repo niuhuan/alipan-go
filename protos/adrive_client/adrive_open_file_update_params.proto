@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+option go_package = "adrive_client/protos/";
+
+message AdriveOpenFileUpdateParams {
+  string drive_id = 1;
+  string file_id = 2;
+  string name = 3;
+  string check_name_mode = 4;
+  bool starred = 5;
+}
