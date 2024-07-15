@@ -48,3 +48,20 @@ message FileItem {
   VideoMediaMetadata video_preview_metadata = 1;
 }
 
+message AdriveOpenFilePartInfo {
+  int64 part_number = 1;
+  int64 part_size = 2;
+  string part_hash = 3;
+}
+
+message AdriveOpenFileStreamInfo {
+  string content_hash = 1;
+  string content_hash_name = 2;
+  string proof_version = 3;
+  string proof_code = 4;
+  string content_md5 = 5;
+  string pre_hash = 6;
+  int64 size = 7;
+  repeated AdriveOpenFilePartInfo part_info_list = 8;
+}
+

@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+import "protos/adrive_client/adrive_open_file.proto";
+
+option go_package = "adrive_client/protos/";
+
+message AdriveOpenFileCreate {
+  string drive_id = 1;
+  string file_id = 2;
+  string status = 3;
+  string parent_file_id = 4;
+  string upload_id = 5;
+  string file_name = 6;
+  bool available = 7;
+  bool exist = 8;
+  bool rapid_upload = 9;
+  repeated AdriveOpenFilePartInfo part_info_list = 10;
+}

@@ -1,6 +1,8 @@
 package alipan
 
 import (
+	"crypto/sha1"
+	"encoding/hex"
 	"github.com/BurntSushi/toml"
 	"github.com/niuhuan/alipan-go/adrive_client/local"
 	"github.com/niuhuan/alipan-go/adrive_client/protos"
@@ -213,4 +215,30 @@ func TestAdriveClient_AdriveOpenFileUpdate(t *testing.T) {
 		t.Fatal(err)
 	}
 	t.Log(info)
+}
+
+const FILE = "HELLO.TXT"
+const TEXT = "Hello, World!"
+
+func TestAdriveClient_AdriveOpenFileCreate_RapidUpload(t *testing.T) {
+	client := adriveClient(t)
+	info, err := client.AdriveOpenFileCreate(&protos.AdriveOpenFileCreateParams{
+		DriveId:         "drive_id",
+		ParentFileId:    "root",
+		Type:            "file",
+		Name:            FILE,
+		Size:            int64(len(TEXT)),
+		ContentHashName: "sha1",
+		ContentHash:     sha1ForText(TEXT),
+	})
+	if err != nil {
+		t.Fatal(err)
+	}
+	t.Log(info)
+}
+
+func sha1ForText(text string) string {
+	hash := sha1.New()
+	hash.Write([]byte(text))
+	return hex.EncodeToString(hash.Sum(nil))
 }

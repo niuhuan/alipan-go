@@ -463,6 +463,172 @@ func (x *FileItem) GetVideoPreviewMetadata() *VideoMediaMetadata {
 	return nil
 }
 
+type AdriveOpenFilePartInfo struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	PartNumber int64  `protobuf:"varint,1,opt,name=part_number,json=partNumber,proto3" json:"part_number,omitempty"`
+	PartSize   int64  `protobuf:"varint,2,opt,name=part_size,json=partSize,proto3" json:"part_size,omitempty"`
+	PartHash   string `protobuf:"bytes,3,opt,name=part_hash,json=partHash,proto3" json:"part_hash,omitempty"`
+}
+
+func (x *AdriveOpenFilePartInfo) Reset() {
+	*x = AdriveOpenFilePartInfo{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_protos_adrive_client_adrive_open_file_proto_msgTypes[5]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *AdriveOpenFilePartInfo) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AdriveOpenFilePartInfo) ProtoMessage() {}
+
+func (x *AdriveOpenFilePartInfo) ProtoReflect() protoreflect.Message {
+	mi := &file_protos_adrive_client_adrive_open_file_proto_msgTypes[5]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AdriveOpenFilePartInfo.ProtoReflect.Descriptor instead.
+func (*AdriveOpenFilePartInfo) Descriptor() ([]byte, []int) {
+	return file_protos_adrive_client_adrive_open_file_proto_rawDescGZIP(), []int{5}
+}
+
+func (x *AdriveOpenFilePartInfo) GetPartNumber() int64 {
+	if x != nil {
+		return x.PartNumber
+	}
+	return 0
+}
+
+func (x *AdriveOpenFilePartInfo) GetPartSize() int64 {
+	if x != nil {
+		return x.PartSize
+	}
+	return 0
+}
+
+func (x *AdriveOpenFilePartInfo) GetPartHash() string {
+	if x != nil {
+		return x.PartHash
+	}
+	return ""
+}
+
+type AdriveOpenFileStreamInfo struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	ContentHash     string                    `protobuf:"bytes,1,opt,name=content_hash,json=contentHash,proto3" json:"content_hash,omitempty"`
+	ContentHashName string                    `protobuf:"bytes,2,opt,name=content_hash_name,json=contentHashName,proto3" json:"content_hash_name,omitempty"`
+	ProofVersion    string                    `protobuf:"bytes,3,opt,name=proof_version,json=proofVersion,proto3" json:"proof_version,omitempty"`
+	ProofCode       string                    `protobuf:"bytes,4,opt,name=proof_code,json=proofCode,proto3" json:"proof_code,omitempty"`
+	ContentMd5      string                    `protobuf:"bytes,5,opt,name=content_md5,json=contentMd5,proto3" json:"content_md5,omitempty"`
+	PreHash         string                    `protobuf:"bytes,6,opt,name=pre_hash,json=preHash,proto3" json:"pre_hash,omitempty"`
+	Size            int64                     `protobuf:"varint,7,opt,name=size,proto3" json:"size,omitempty"`
+	PartInfoList    []*AdriveOpenFilePartInfo `protobuf:"bytes,8,rep,name=part_info_list,json=partInfoList,proto3" json:"part_info_list,omitempty"`
+}
+
+func (x *AdriveOpenFileStreamInfo) Reset() {
+	*x = AdriveOpenFileStreamInfo{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_protos_adrive_client_adrive_open_file_proto_msgTypes[6]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *AdriveOpenFileStreamInfo) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AdriveOpenFileStreamInfo) ProtoMessage() {}
+
+func (x *AdriveOpenFileStreamInfo) ProtoReflect() protoreflect.Message {
+	mi := &file_protos_adrive_client_adrive_open_file_proto_msgTypes[6]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AdriveOpenFileStreamInfo.ProtoReflect.Descriptor instead.
+func (*AdriveOpenFileStreamInfo) Descriptor() ([]byte, []int) {
+	return file_protos_adrive_client_adrive_open_file_proto_rawDescGZIP(), []int{6}
+}
+
+func (x *AdriveOpenFileStreamInfo) GetContentHash() string {
+	if x != nil {
+		return x.ContentHash
+	}
+	return ""
+}
+
+func (x *AdriveOpenFileStreamInfo) GetContentHashName() string {
+	if x != nil {
+		return x.ContentHashName
+	}
+	return ""
+}
+
+func (x *AdriveOpenFileStreamInfo) GetProofVersion() string {
+	if x != nil {
+		return x.ProofVersion
+	}
+	return ""
+}
+
+func (x *AdriveOpenFileStreamInfo) GetProofCode() string {
+	if x != nil {
+		return x.ProofCode
+	}
+	return ""
+}
+
+func (x *AdriveOpenFileStreamInfo) GetContentMd5() string {
+	if x != nil {
+		return x.ContentMd5
+	}
+	return ""
+}
+
+func (x *AdriveOpenFileStreamInfo) GetPreHash() string {
+	if x != nil {
+		return x.PreHash
+	}
+	return ""
+}
+
+func (x *AdriveOpenFileStreamInfo) GetSize() int64 {
+	if x != nil {
+		return x.Size
+	}
+	return 0
+}
+
+func (x *AdriveOpenFileStreamInfo) GetPartInfoList() []*AdriveOpenFilePartInfo {
+	if x != nil {
+		return x.PartInfoList
+	}
+	return nil
+}
+
 var File_protos_adrive_client_adrive_open_file_proto protoreflect.FileDescriptor
 
 var file_protos_adrive_client_adrive_open_file_proto_rawDesc = []byte{
@@ -544,9 +710,37 @@ var file_protos_adrive_client_adrive_open_file_proto_rawDesc = []byte{
 	0x76, 0x69, 0x65, 0x77, 0x5f, 0x6d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0x18, 0x01, 0x20,
 	0x01, 0x28, 0x0b, 0x32, 0x13, 0x2e, 0x56, 0x69, 0x64, 0x65, 0x6f, 0x4d, 0x65, 0x64, 0x69, 0x61,
 	0x4d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0x52, 0x14, 0x76, 0x69, 0x64, 0x65, 0x6f, 0x50,
-	0x72, 0x65, 0x76, 0x69, 0x65, 0x77, 0x4d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0x42, 0x17,
-	0x5a, 0x15, 0x61, 0x64, 0x72, 0x69, 0x76, 0x65, 0x5f, 0x63, 0x6c, 0x69, 0x65, 0x6e, 0x74, 0x2f,
-	0x70, 0x72, 0x6f, 0x74, 0x6f, 0x73, 0x2f, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
+	0x72, 0x65, 0x76, 0x69, 0x65, 0x77, 0x4d, 0x65, 0x74, 0x61, 0x64, 0x61, 0x74, 0x61, 0x22, 0x73,
+	0x0a, 0x16, 0x41, 0x64, 0x72, 0x69, 0x76, 0x65, 0x4f, 0x70, 0x65, 0x6e, 0x46, 0x69, 0x6c, 0x65,
+	0x50, 0x61, 0x72, 0x74, 0x49, 0x6e, 0x66, 0x6f, 0x12, 0x1f, 0x0a, 0x0b, 0x70, 0x61, 0x72, 0x74,
+	0x5f, 0x6e, 0x75, 0x6d, 0x62, 0x65, 0x72, 0x18, 0x01, 0x20, 0x01, 0x28, 0x03, 0x52, 0x0a, 0x70,
+	0x61, 0x72, 0x74, 0x4e, 0x75, 0x6d, 0x62, 0x65, 0x72, 0x12, 0x1b, 0x0a, 0x09, 0x70, 0x61, 0x72,
+	0x74, 0x5f, 0x73, 0x69, 0x7a, 0x65, 0x18, 0x02, 0x20, 0x01, 0x28, 0x03, 0x52, 0x08, 0x70, 0x61,
+	0x72, 0x74, 0x53, 0x69, 0x7a, 0x65, 0x12, 0x1b, 0x0a, 0x09, 0x70, 0x61, 0x72, 0x74, 0x5f, 0x68,
+	0x61, 0x73, 0x68, 0x18, 0x03, 0x20, 0x01, 0x28, 0x09, 0x52, 0x08, 0x70, 0x61, 0x72, 0x74, 0x48,
+	0x61, 0x73, 0x68, 0x22, 0xbc, 0x02, 0x0a, 0x18, 0x41, 0x64, 0x72, 0x69, 0x76, 0x65, 0x4f, 0x70,
+	0x65, 0x6e, 0x46, 0x69, 0x6c, 0x65, 0x53, 0x74, 0x72, 0x65, 0x61, 0x6d, 0x49, 0x6e, 0x66, 0x6f,
+	0x12, 0x21, 0x0a, 0x0c, 0x63, 0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74, 0x5f, 0x68, 0x61, 0x73, 0x68,
+	0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0b, 0x63, 0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74, 0x48,
+	0x61, 0x73, 0x68, 0x12, 0x2a, 0x0a, 0x11, 0x63, 0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74, 0x5f, 0x68,
+	0x61, 0x73, 0x68, 0x5f, 0x6e, 0x61, 0x6d, 0x65, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0f,
+	0x63, 0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74, 0x48, 0x61, 0x73, 0x68, 0x4e, 0x61, 0x6d, 0x65, 0x12,
+	0x23, 0x0a, 0x0d, 0x70, 0x72, 0x6f, 0x6f, 0x66, 0x5f, 0x76, 0x65, 0x72, 0x73, 0x69, 0x6f, 0x6e,
+	0x18, 0x03, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0c, 0x70, 0x72, 0x6f, 0x6f, 0x66, 0x56, 0x65, 0x72,
+	0x73, 0x69, 0x6f, 0x6e, 0x12, 0x1d, 0x0a, 0x0a, 0x70, 0x72, 0x6f, 0x6f, 0x66, 0x5f, 0x63, 0x6f,
+	0x64, 0x65, 0x18, 0x04, 0x20, 0x01, 0x28, 0x09, 0x52, 0x09, 0x70, 0x72, 0x6f, 0x6f, 0x66, 0x43,
+	0x6f, 0x64, 0x65, 0x12, 0x1f, 0x0a, 0x0b, 0x63, 0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74, 0x5f, 0x6d,
+	0x64, 0x35, 0x18, 0x05, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0a, 0x63, 0x6f, 0x6e, 0x74, 0x65, 0x6e,
+	0x74, 0x4d, 0x64, 0x35, 0x12, 0x19, 0x0a, 0x08, 0x70, 0x72, 0x65, 0x5f, 0x68, 0x61, 0x73, 0x68,
+	0x18, 0x06, 0x20, 0x01, 0x28, 0x09, 0x52, 0x07, 0x70, 0x72, 0x65, 0x48, 0x61, 0x73, 0x68, 0x12,
+	0x12, 0x0a, 0x04, 0x73, 0x69, 0x7a, 0x65, 0x18, 0x07, 0x20, 0x01, 0x28, 0x03, 0x52, 0x04, 0x73,
+	0x69, 0x7a, 0x65, 0x12, 0x3d, 0x0a, 0x0e, 0x70, 0x61, 0x72, 0x74, 0x5f, 0x69, 0x6e, 0x66, 0x6f,
+	0x5f, 0x6c, 0x69, 0x73, 0x74, 0x18, 0x08, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x17, 0x2e, 0x41, 0x64,
+	0x72, 0x69, 0x76, 0x65, 0x4f, 0x70, 0x65, 0x6e, 0x46, 0x69, 0x6c, 0x65, 0x50, 0x61, 0x72, 0x74,
+	0x49, 0x6e, 0x66, 0x6f, 0x52, 0x0c, 0x70, 0x61, 0x72, 0x74, 0x49, 0x6e, 0x66, 0x6f, 0x4c, 0x69,
+	0x73, 0x74, 0x42, 0x17, 0x5a, 0x15, 0x61, 0x64, 0x72, 0x69, 0x76, 0x65, 0x5f, 0x63, 0x6c, 0x69,
+	0x65, 0x6e, 0x74, 0x2f, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x73, 0x2f, 0x62, 0x06, 0x70, 0x72, 0x6f,
+	0x74, 0x6f, 0x33,
 }
 
 var (
@@ -561,13 +755,15 @@ func file_protos_adrive_client_adrive_open_file_proto_rawDescGZIP() []byte {
 	return file_protos_adrive_client_adrive_open_file_proto_rawDescData
 }
 
-var file_protos_adrive_client_adrive_open_file_proto_msgTypes = make([]protoimpl.MessageInfo, 5)
+var file_protos_adrive_client_adrive_open_file_proto_msgTypes = make([]protoimpl.MessageInfo, 7)
 var file_protos_adrive_client_adrive_open_file_proto_goTypes = []interface{}{
-	(*AdriveOpenFile)(nil),        // 0: AdriveOpenFile
-	(*VideoMediaMetadata)(nil),    // 1: VideoMediaMetadata
-	(*VideoMediaVideoStream)(nil), // 2: VideoMediaVideoStream
-	(*VideoMediaAudioStream)(nil), // 3: VideoMediaAudioStream
-	(*FileItem)(nil),              // 4: FileItem
+	(*AdriveOpenFile)(nil),           // 0: AdriveOpenFile
+	(*VideoMediaMetadata)(nil),       // 1: VideoMediaMetadata
+	(*VideoMediaVideoStream)(nil),    // 2: VideoMediaVideoStream
+	(*VideoMediaAudioStream)(nil),    // 3: VideoMediaAudioStream
+	(*FileItem)(nil),                 // 4: FileItem
+	(*AdriveOpenFilePartInfo)(nil),   // 5: AdriveOpenFilePartInfo
+	(*AdriveOpenFileStreamInfo)(nil), // 6: AdriveOpenFileStreamInfo
 }
 var file_protos_adrive_client_adrive_open_file_proto_depIdxs = []int32{
 	1, // 0: AdriveOpenFile.video_media_metadata:type_name -> VideoMediaMetadata
@@ -576,11 +772,12 @@ var file_protos_adrive_client_adrive_open_file_proto_depIdxs = []int32{
 	2, // 3: VideoMediaMetadata.video_media_video_stream:type_name -> VideoMediaVideoStream
 	3, // 4: VideoMediaMetadata.video_media_audio_stream:type_name -> VideoMediaAudioStream
 	1, // 5: FileItem.video_preview_metadata:type_name -> VideoMediaMetadata
-	6, // [6:6] is the sub-list for method output_type
-	6, // [6:6] is the sub-list for method input_type
-	6, // [6:6] is the sub-list for extension type_name
-	6, // [6:6] is the sub-list for extension extendee
-	0, // [0:6] is the sub-list for field type_name
+	5, // 6: AdriveOpenFileStreamInfo.part_info_list:type_name -> AdriveOpenFilePartInfo
+	7, // [7:7] is the sub-list for method output_type
+	7, // [7:7] is the sub-list for method input_type
+	7, // [7:7] is the sub-list for extension type_name
+	7, // [7:7] is the sub-list for extension extendee
+	0, // [0:7] is the sub-list for field type_name
 }
 
 func init() { file_protos_adrive_client_adrive_open_file_proto_init() }
@@ -649,6 +846,30 @@ func file_protos_adrive_client_adrive_open_file_proto_init() {
 				return nil
 			}
 		}
+		file_protos_adrive_client_adrive_open_file_proto_msgTypes[5].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*AdriveOpenFilePartInfo); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_protos_adrive_client_adrive_open_file_proto_msgTypes[6].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*AdriveOpenFileStreamInfo); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
 	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
@@ -656,7 +877,7 @@ func file_protos_adrive_client_adrive_open_file_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_protos_adrive_client_adrive_open_file_proto_rawDesc,
 			NumEnums:      0,
-			NumMessages:   5,
+			NumMessages:   7,
 			NumExtensions: 0,
 			NumServices:   0,
 		},
