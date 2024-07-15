@@ -53,6 +53,9 @@ message AdriveOpenFilePartInfo {
   int64 part_size = 2;
   string part_hash = 3;
   string upload_url = 4;
+  string content_type = 5;
+  string etag = 6;
+  string upload_form_info = 7;
 }
 
 message AdriveOpenFileStreamInfo {

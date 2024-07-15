@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+option go_package = "adrive_client/protos/";
+
+message AdriveOpenFileListUploadedPartsParams {
+  string drive_id = 1;
+  string file_id = 2;
+  string upload_id = 3;
+  string part_number_marker = 4;
+}

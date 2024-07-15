@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+import "protos/adrive_client/adrive_open_file.proto";
+
+option go_package = "adrive_client/protos/";
+
+message AdriveOpenFileListUploadedParts {
+  string drive_id = 1;
+  string upload_id = 2;
+  bool parallel_upload = 3;
+  repeated AdriveOpenFilePartInfo uploaded_parts = 4;
+  string next_part_number_marker = 5;
+}
