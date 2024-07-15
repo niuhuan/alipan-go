@@ -1,0 +1,7 @@
+syntax = "proto3";
+
+option go_package = "adrive_client/protos/";
+
+message AdriveOpenFileAsyncTaskGetParams {
+  string async_task_id = 1;
+}
